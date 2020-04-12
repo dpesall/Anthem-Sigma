@@ -24,6 +24,7 @@ namespace Anthem_Sigma
             InitializeComponent();
         }
 
+
         private void ButtonBack_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -125,25 +126,32 @@ namespace Anthem_Sigma
 
         private void ButtonEncipher_Click(object sender, EventArgs e)
         {
+            int key;
+            string keyword;
             string text = textBoxInput.Text;
             int method = comboEncipherMethod.SelectedIndex;
             switch (method)
             {
                 case 0:
-                    int key = (comboKeyLetter.SelectedIndex + 1) % 26;
+                    key = (comboKeyLetter.SelectedIndex + 1) % 26;
                     text = encipherCaesar(text, key);
                     break;
                 case 1:
-                    encipherAffine(text);
+                    keyword = textKeyword.Text.ToLower();
+                    text = encipherKeyword(text, keyword);
                     break;
                 case 2:
-                    encipherKeyword(text);
+                    int mult = (int) numericMultiplicative.Value;
+                    int add = (int) numericAdditive.Value;
+                    text = encipherAffine(text, mult, add);
                     break;
                 case 3:
-                    encipherVigenere(text);
+                    keyword = textKeyword.Text.ToLower();
+                    text = encipherVigenere(text, keyword);
                     break;
                 case 4:
-                    encipherHill(text);
+                    //richTestBox.Text = temp;
+                    text = encipherHill(text);
                     break;
             }
 
@@ -167,23 +175,95 @@ namespace Anthem_Sigma
             return text;
         }
 
-        private string encipherAffine(string text)
+        private string encipherAffine(string text, int mult, int add)
         {
+            string segment = "";
+            char[] arr = text.ToCharArray();
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] >= 'A' && arr[i] <= 'Z')
+                {
+                    segment = segment + (char)((((mult * (arr[i] - 'A')) + add) % 26) + 'A');
+                }
+                else
+                {
+                    segment += arr[i];
+                }
+            }
+            return segment;
+        }
+
+        private string encipherKeyword(string text, string keyword)
+        {
+
+            string encoded = encoder(keyword.ToCharArray());
+            text = keywordEnciphering(text, encoded);
+
             return text;
         }
 
-        private string encipherKeyword(string text)
+        private string encipherVigenere(string text, string keyword)
         {
-            return text;
-        }
 
-        private string encipherVigenere(string text)
-        {
-            return text;
+            string fullKey = keyword.ToUpper();
+            int x = text.Length;
+
+            for (int i = 0; ; i++)
+            {
+                if (x == i)
+                    i = 0;
+                if (fullKey.Length == text.Length)
+                    break;
+                fullKey += (fullKey[i]);
+            }
+
+            String segment = "";
+
+            int k = 0;
+            for (int i = 0; i < text.Length; i++)
+            {
+                if (text[i] >= 'A' && text[i] <= 'Z')
+                {
+                    int y = (text[i] + fullKey[k]) % 26;
+                    y += 'A';
+                    segment += (char)(y);
+                    k++;
+                }
+                else
+                {
+                    segment += text[i];
+                }
+            }
+            return segment;
         }
 
         private string encipherHill(string text)
         {
+            string wordPairs = getPairMatrix(text);
+            richTestBox.Text = wordPairs;
+            return text;
+        }
+
+        static string getPairMatrix(String text)
+        {
+            if (text.Length % 2 != 0)
+            {
+                text = text.Remove(text.Length - 1, 1);
+            }
+            int pairCount = text.Length / 2;
+
+            int[,] pairs = new int[2, pairCount];
+
+            int j = 0;
+            for (int i = 0; i < pairCount; i++)
+            {
+                for (int k = 0; k < 2; k++)
+                {
+
+                }
+            }
+
             return text;
         }
 
@@ -215,6 +295,80 @@ namespace Anthem_Sigma
         private void matrixKey_Pressed(object sender, KeyPressEventArgs e)
         {
             e.Handled = !(char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+        }
+
+        // Courtesy of GeeksForGeeks below
+        static String encoder(char[] key)
+        {
+            String encoded = "";
+
+            Boolean[] arr = new Boolean[26];
+
+            for (int i = 0; i < key.Length; i++)
+            {
+                if (key[i] >= 'A' && key[i] <= 'Z')
+                {
+                    if (arr[key[i] - 65] == false)
+                    {
+                        encoded += (char)key[i];
+                        arr[key[i] - 65] = true;
+                    }
+                }
+                else if (key[i] >= 'a' && key[i] <= 'z')
+                {
+                    if (arr[key[i] - 97] == false)
+                    {
+                        encoded += (char)(key[i] - 32);
+                        arr[key[i] - 97] = true;
+                    }
+                }
+            }
+
+            for (int i = 0; i < 26; i++)
+            {
+                if (arr[i] == false)
+                {
+                    arr[i] = true;
+                    encoded += (char)(i + 65);
+                }
+            }
+            return encoded;
+        }
+
+        static String keywordEnciphering(String msg, String encoded)
+        {
+            String cipher = "";
+
+            for (int i = 0; i < msg.Length; i++)
+            {
+                if (msg[i] >= 'a' && msg[i] <= 'z')
+                {
+                    int pos = msg[i] - 97;
+                    cipher += encoded[pos];
+                }
+                else if (msg[i] >= 'A' && msg[i] <= 'Z')
+                {
+                    int pos = msg[i] - 65;
+                    cipher += encoded[pos];
+                }
+                else
+                {
+                    cipher += msg[i];
+                }
+            }
+            return cipher;
+        }
+
+        private void matrixText_Changed(object sender, EventArgs e)
+        {
+            if (textMatrix1.Text.Equals("") || textMatrix2.Text.Equals("") || textMatrix3.Text.Equals("") || textMatrix4.Text.Equals(""))
+            {
+                buttonEncipher.Visible = false;
+            }
+            else
+            {
+                buttonEncipher.Visible = true;
+            }
         }
     }
 }

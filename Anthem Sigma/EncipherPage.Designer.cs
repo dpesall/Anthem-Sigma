@@ -52,6 +52,7 @@
             this.textMatrix3 = new System.Windows.Forms.TextBox();
             this.textMatrix4 = new System.Windows.Forms.TextBox();
             this.buttonEncipher = new System.Windows.Forms.Button();
+            this.richTestBox = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericMultiplicative)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericAdditive)).BeginInit();
             this.SuspendLayout();
@@ -324,6 +325,7 @@
             this.textMatrix1.Size = new System.Drawing.Size(45, 31);
             this.textMatrix1.TabIndex = 20;
             this.textMatrix1.Visible = false;
+            this.textMatrix1.TextChanged += new System.EventHandler(this.matrixText_Changed);
             this.textMatrix1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.matrixKey_Pressed);
             // 
             // textMatrix2
@@ -334,6 +336,7 @@
             this.textMatrix2.Size = new System.Drawing.Size(45, 31);
             this.textMatrix2.TabIndex = 21;
             this.textMatrix2.Visible = false;
+            this.textMatrix2.TextChanged += new System.EventHandler(this.matrixText_Changed);
             this.textMatrix2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.matrixKey_Pressed);
             // 
             // textMatrix3
@@ -344,6 +347,7 @@
             this.textMatrix3.Size = new System.Drawing.Size(45, 31);
             this.textMatrix3.TabIndex = 22;
             this.textMatrix3.Visible = false;
+            this.textMatrix3.TextChanged += new System.EventHandler(this.matrixText_Changed);
             this.textMatrix3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.matrixKey_Pressed);
             // 
             // textMatrix4
@@ -354,6 +358,7 @@
             this.textMatrix4.Size = new System.Drawing.Size(45, 31);
             this.textMatrix4.TabIndex = 23;
             this.textMatrix4.Visible = false;
+            this.textMatrix4.TextChanged += new System.EventHandler(this.matrixText_Changed);
             this.textMatrix4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.matrixKey_Pressed);
             // 
             // buttonEncipher
@@ -370,12 +375,22 @@
             this.buttonEncipher.Visible = false;
             this.buttonEncipher.Click += new System.EventHandler(this.ButtonEncipher_Click);
             // 
+            // richTestBox
+            // 
+            this.richTestBox.Location = new System.Drawing.Point(420, 125);
+            this.richTestBox.Name = "richTestBox";
+            this.richTestBox.ReadOnly = true;
+            this.richTestBox.Size = new System.Drawing.Size(198, 77);
+            this.richTestBox.TabIndex = 25;
+            this.richTestBox.Text = "";
+            // 
             // EncipherPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1184, 681);
+            this.Controls.Add(this.richTestBox);
             this.Controls.Add(this.buttonEncipher);
             this.Controls.Add(this.textMatrix4);
             this.Controls.Add(this.textMatrix3);
@@ -438,5 +453,6 @@
         private System.Windows.Forms.TextBox textMatrix3;
         private System.Windows.Forms.TextBox textMatrix4;
         private System.Windows.Forms.Button buttonEncipher;
+        private System.Windows.Forms.RichTextBox richTestBox;
     }
 }
