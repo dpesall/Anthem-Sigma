@@ -1,0 +1,13 @@
+D:\VS Repos\Anthem Sigma\Anthem Sigma\Anthem Sigma\bin\Debug\Anthem Sigma.exe.config
+D:\VS Repos\Anthem Sigma\Anthem Sigma\Anthem Sigma\bin\Debug\Anthem Sigma.exe
+D:\VS Repos\Anthem Sigma\Anthem Sigma\Anthem Sigma\bin\Debug\Anthem Sigma.pdb
+D:\VS Repos\Anthem Sigma\Anthem Sigma\Anthem Sigma\obj\Debug\Anthem Sigma.csprojAssemblyReference.cache
+D:\VS Repos\Anthem Sigma\Anthem Sigma\Anthem Sigma\obj\Debug\Anthem_Sigma.MainPage.resources
+D:\VS Repos\Anthem Sigma\Anthem Sigma\Anthem Sigma\obj\Debug\Anthem_Sigma.Properties.Resources.resources
+D:\VS Repos\Anthem Sigma\Anthem Sigma\Anthem Sigma\obj\Debug\Anthem Sigma.csproj.GenerateResource.cache
+D:\VS Repos\Anthem Sigma\Anthem Sigma\Anthem Sigma\obj\Debug\Anthem Sigma.csproj.CoreCompileInputs.cache
+D:\VS Repos\Anthem Sigma\Anthem Sigma\Anthem Sigma\obj\Debug\Anthem Sigma.exe
+D:\VS Repos\Anthem Sigma\Anthem Sigma\Anthem Sigma\obj\Debug\Anthem Sigma.pdb
+D:\VS Repos\Anthem Sigma\Anthem Sigma\Anthem Sigma\obj\Debug\Anthem_Sigma.DecipherPage.resources
+D:\VS Repos\Anthem Sigma\Anthem Sigma\Anthem Sigma\obj\Debug\Anthem_Sigma.EncipherPage.resources
+D:\VS Repos\Anthem Sigma\Anthem Sigma\Anthem Sigma\obj\Debug\Anthem_Sigma.UtilitiesPage.resources
