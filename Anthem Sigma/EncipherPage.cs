@@ -150,8 +150,13 @@ namespace Anthem_Sigma
                     text = encipherVigenere(text, keyword);
                     break;
                 case 4:
-                    //richTestBox.Text = temp;
-                    text = encipherHill(text);
+                    int[] matrix = {
+                        Int32.Parse(textMatrix1.Text),
+                        Int32.Parse(textMatrix2.Text),
+                        Int32.Parse(textMatrix3.Text),
+                        Int32.Parse(textMatrix4.Text)
+                    };
+                    text = encipherHill(text, matrix);
                     break;
             }
 
@@ -238,33 +243,60 @@ namespace Anthem_Sigma
             return segment;
         }
 
-        private string encipherHill(string text)
+        private string encipherHill(string text, int[] matrix)
         {
-            string wordPairs = getPairMatrix(text);
-            richTestBox.Text = wordPairs;
-            return text;
+            string enciphered = getPairMatrix(text, matrix);
+            return enciphered;
         }
 
-        static string getPairMatrix(String text)
+        static string getPairMatrix(String text, int[] matrix)
         {
             if (text.Length % 2 != 0)
             {
                 text = text.Remove(text.Length - 1, 1);
             }
+
+            text = string.Join("", text.Split(default(string[]), StringSplitOptions.RemoveEmptyEntries));
+
             int pairCount = text.Length / 2;
 
-            int[,] pairs = new int[2, pairCount];
+            string[,] pairs = new string[2, pairCount];
+            int[,] pairsValue = new int[2, pairCount];
 
             int j = 0;
             for (int i = 0; i < pairCount; i++)
             {
                 for (int k = 0; k < 2; k++)
                 {
-
+                    pairs[k, i] = (text[j] - 'A').ToString();
+                    pairsValue[k, i] = Int32.Parse((text[j] - 'A').ToString());
+                    j++;
                 }
             }
 
-            return text;
+            string pairedText = "";
+            for (int i = 0; i < pairCount; i++)
+            {
+                for (int k = 0; k < 1; k++)
+                {
+                    int x = pairsValue[0, i];
+                    int y = pairsValue[1, i];
+
+                    int newX = matrix[0] * x + matrix[1] * y;
+                    newX %= 26;
+                    int newY = matrix[2] * x + matrix[3] * y;
+                    newY %= 26;
+
+                    char top =    (char) (newX + 'A');
+                    char bottom = (char) (newY + 'A');
+
+                    pairedText += top.ToString();
+                    pairedText += bottom.ToString();
+                }
+                pairedText += " ";
+            }
+
+            return pairedText;
         }
 
         private void ComboKeyLetter_SelectedIndexChanged(object sender, EventArgs e)

@@ -52,7 +52,6 @@
             this.textMatrix3 = new System.Windows.Forms.TextBox();
             this.textMatrix4 = new System.Windows.Forms.TextBox();
             this.buttonEncipher = new System.Windows.Forms.Button();
-            this.richTestBox = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericMultiplicative)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericAdditive)).BeginInit();
             this.SuspendLayout();
@@ -375,22 +374,12 @@
             this.buttonEncipher.Visible = false;
             this.buttonEncipher.Click += new System.EventHandler(this.ButtonEncipher_Click);
             // 
-            // richTestBox
-            // 
-            this.richTestBox.Location = new System.Drawing.Point(420, 125);
-            this.richTestBox.Name = "richTestBox";
-            this.richTestBox.ReadOnly = true;
-            this.richTestBox.Size = new System.Drawing.Size(198, 77);
-            this.richTestBox.TabIndex = 25;
-            this.richTestBox.Text = "";
-            // 
             // EncipherPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1184, 681);
-            this.Controls.Add(this.richTestBox);
             this.Controls.Add(this.buttonEncipher);
             this.Controls.Add(this.textMatrix4);
             this.Controls.Add(this.textMatrix3);
@@ -453,6 +442,5 @@
         private System.Windows.Forms.TextBox textMatrix3;
         private System.Windows.Forms.TextBox textMatrix4;
         private System.Windows.Forms.Button buttonEncipher;
-        private System.Windows.Forms.RichTextBox richTestBox;
     }
 }
