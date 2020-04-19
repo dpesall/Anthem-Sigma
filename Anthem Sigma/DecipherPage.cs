@@ -214,9 +214,16 @@ namespace Anthem_Sigma
 
                     break;
                 case 4:
+                    int[] matrix = {
+                        Int32.Parse(textMatrix1.Text),
+                        Int32.Parse(textMatrix2.Text),
+                        Int32.Parse(textMatrix3.Text),
+                        Int32.Parse(textMatrix4.Text)
+                    };
+                    matrix = invertMatrix(matrix);
+                    text = decipherHills(text, matrix);
 
                     textBoxOutput.Text = text;
-
                     break;
             }
         }
@@ -331,6 +338,119 @@ namespace Anthem_Sigma
             }
 
             return deciphered;
+        }
+        // a[0]  b[1]
+        // c[2]  d]3]
+        private static int[] invertMatrix(int[] matrix)
+        {
+            int[] inverted = { matrix[3], -matrix[1], -matrix[2], matrix[0] };
+
+            for (int i = 0; i < 4; i++)
+            {
+                while(inverted[i] < 0 || inverted[i] > 26)
+                {
+                    if (inverted[i] > 26)
+                    {
+                        inverted[i] -= 26;
+                    }
+                    if (inverted[i] < 0)
+                    {
+                        inverted[i] += 26;
+                    }
+                }
+            }
+
+            int a = matrix[0] * matrix[3];
+            int b = matrix[1] * matrix[2];
+            int det = a - b;
+            while (det < 0 || det > 26)
+            {
+                if (det > 26)
+                {
+                    det -= 26;
+                }
+                if (det < 0)
+                {
+                    det += 26;
+                }
+            }
+            det = modInverse(det, 26);
+
+            for (int i = 0; i < 4; i++)
+            {
+                inverted[i] *= det;
+                while (inverted[i] < 0 || inverted[i] > 26)
+                {
+                    if (inverted[i] > 26)
+                    {
+                        inverted[i] -= 26;
+                    }
+                    if (inverted[i] < 0)
+                    {
+                        inverted[i] += 26;
+                    }
+                }
+            }
+
+            return inverted;
+        }
+
+        private static string decipherHills(string text, int[] matrix)
+        {
+
+            if (text.Length % 2 != 0)
+            {
+                text = text.Remove(text.Length - 1, 1);
+            }
+
+            text = string.Join("", text.Split(default(string[]), StringSplitOptions.RemoveEmptyEntries));
+            string onlyLetters = "";
+            for (int i = 0; i < text.Length; i++)
+            {
+                if (text[i] >= 'A' && text[i] <= 'Z')
+                {
+                    onlyLetters += text[i];
+                }
+            }
+            text = onlyLetters;
+
+            int pairCount = text.Length / 2;
+
+            int[,] pairsValue = new int[2, pairCount];
+
+            int j = 0;
+            for (int i = 0; i < pairCount; i++)
+            {
+                for (int k = 0; k < 2; k++)
+                {
+                    pairsValue[k, i] = Int32.Parse((text[j] - 'A').ToString());
+                    j++;
+                }
+            }
+
+            string pairedText = "";
+            for (int i = 0; i < pairCount; i++)
+            {
+                for (int k = 0; k < 1; k++)
+                {
+                    int x = pairsValue[0, i];
+                    int y = pairsValue[1, i];
+
+                    int newX = matrix[0] * x + matrix[1] * y;
+                    newX %= 26;
+                    int newY = matrix[2] * x + matrix[3] * y;
+                    newY %= 26;
+
+                    char top = (char)(newX + 'A');
+                    char bottom = (char)(newY + 'A');
+
+                    pairedText += top.ToString();
+                    pairedText += bottom.ToString();
+                }
+                pairedText += " ";
+            }
+
+            return pairedText;
         }
 
         // Courtesy of GeeksForGeeks below
