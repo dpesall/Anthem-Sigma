@@ -110,7 +110,7 @@
             this.buttonDecipherManual.Name = "buttonDecipherManual";
             this.buttonDecipherManual.Size = new System.Drawing.Size(279, 81);
             this.buttonDecipherManual.TabIndex = 5;
-            this.buttonDecipherManual.Text = "Decipher Manual";
+            this.buttonDecipherManual.Text = "Manual Deciphering";
             this.buttonDecipherManual.UseVisualStyleBackColor = false;
             this.buttonDecipherManual.Click += new System.EventHandler(this.ButtonDecipherManual_Click);
             // 

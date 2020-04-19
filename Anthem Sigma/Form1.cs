@@ -51,7 +51,9 @@ namespace Anthem_Sigma
 
         private void ButtonDecipherManual_Click(object sender, EventArgs e)
         {
-
+            ManualPage manual = new ManualPage();
+            manual.Show();
+            main.Hide();
         }
 
         private void ButtonCredits_Click(object sender, EventArgs e)

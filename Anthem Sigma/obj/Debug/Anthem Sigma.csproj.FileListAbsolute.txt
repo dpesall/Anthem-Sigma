@@ -11,3 +11,4 @@ D:\VS Repos\Anthem Sigma\Anthem Sigma\Anthem Sigma\obj\Debug\Anthem Sigma.pdb
 D:\VS Repos\Anthem Sigma\Anthem Sigma\Anthem Sigma\obj\Debug\Anthem_Sigma.DecipherPage.resources
 D:\VS Repos\Anthem Sigma\Anthem Sigma\Anthem Sigma\obj\Debug\Anthem_Sigma.EncipherPage.resources
 D:\VS Repos\Anthem Sigma\Anthem Sigma\Anthem Sigma\obj\Debug\Anthem_Sigma.UtilitiesPage.resources
+D:\VS Repos\Anthem Sigma\Anthem Sigma\Anthem Sigma\obj\Debug\Anthem_Sigma.ManualPage.resources
