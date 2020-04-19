@@ -208,7 +208,8 @@ namespace Anthem_Sigma
 
                     break;
                 case 3:
-
+                    keyword = textKeyword.Text;
+                    text = decipherVigenere(text, keyword);
                     textBoxOutput.Text = text;
 
                     break;
@@ -248,7 +249,7 @@ namespace Anthem_Sigma
             return text;
         }
 
-        static string keywordDeciphering(String msg, String encoded)
+        private static string keywordDeciphering(String msg, String encoded)
         {
             Dictionary<char, int> enc = new Dictionary<char, int>();
             string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -274,7 +275,7 @@ namespace Anthem_Sigma
             return cipher;
         }
 
-        static string decipherAffine(string text, int mult, int add)
+        private static string decipherAffine(string text, int mult, int add)
         {
             mult = modInverse(mult, 26);
             add = 26 - add;
@@ -293,6 +294,43 @@ namespace Anthem_Sigma
                 }
             }
             return segment;
+        }
+
+        private static string decipherVigenere(string text, string keyword)
+        {
+            String deciphered = "";
+            string fullKey = keyword.ToUpper();
+            int x = text.Length;
+
+            for (int i = 0; ; i++)
+            {
+                if (x == i)
+                    i = 0;
+                if (fullKey.Length == text.Length)
+                    break;
+                fullKey += (fullKey[i]);
+            }
+
+            int k = 0;
+            for (int i = 0; i < text.Length && i < fullKey.Length; i++)
+            {
+
+                if (text[i] >= 'A' && text[i] <= 'Z')
+                {
+                    int y = (text[i] - fullKey[k] + 26) % 26;
+
+                    y += 'A';
+                    deciphered += (char)(y);
+                    k++;
+                } else
+                {
+                    deciphered += text[i];
+                }
+
+                
+            }
+
+            return deciphered;
         }
 
         // Courtesy of GeeksForGeeks below

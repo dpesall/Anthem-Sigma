@@ -210,7 +210,6 @@ namespace Anthem_Sigma
 
         private string encipherVigenere(string text, string keyword)
         {
-
             string fullKey = keyword.ToUpper();
             int x = text.Length;
 
@@ -257,10 +256,18 @@ namespace Anthem_Sigma
             }
 
             text = string.Join("", text.Split(default(string[]), StringSplitOptions.RemoveEmptyEntries));
+            string onlyLetters = "";
+            for (int i = 0; i < text.Length; i++)
+            {
+                if (text[i] >= 'A' && text[i] <= 'Z')
+                {
+                    onlyLetters += text[i];
+                }
+            }
+            text = onlyLetters;
 
             int pairCount = text.Length / 2;
 
-            string[,] pairs = new string[2, pairCount];
             int[,] pairsValue = new int[2, pairCount];
 
             int j = 0;
@@ -268,7 +275,6 @@ namespace Anthem_Sigma
             {
                 for (int k = 0; k < 2; k++)
                 {
-                    pairs[k, i] = (text[j] - 'A').ToString();
                     pairsValue[k, i] = Int32.Parse((text[j] - 'A').ToString());
                     j++;
                 }
