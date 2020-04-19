@@ -116,6 +116,8 @@
             this.buttonPlainb = new System.Windows.Forms.Button();
             this.buttonPlaina = new System.Windows.Forms.Button();
             this.buttonPlainEmpty = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonBack
@@ -164,6 +166,7 @@
             this.labelUpload.Size = new System.Drawing.Size(122, 20);
             this.labelUpload.TabIndex = 32;
             this.labelUpload.Text = "Upload a .txt file";
+            this.labelUpload.Click += new System.EventHandler(this.LabelUpload_Click);
             // 
             // textBoxPlaintext
             // 
@@ -1104,6 +1107,16 @@
             this.buttonPlainEmpty.Visible = false;
             this.buttonPlainEmpty.Click += new System.EventHandler(this.ButtonPlainEmpty_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Anthem_Sigma.Properties.Resources.Logo_Full;
+            this.pictureBox1.Location = new System.Drawing.Point(1020, 437);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(143, 142);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 142;
+            this.pictureBox1.TabStop = false;
+            // 
             // ManualPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1197,6 +1210,7 @@
             this.Controls.Add(this.buttonUpload);
             this.Controls.Add(this.textBoxCiphertext);
             this.Controls.Add(this.buttonBack);
+            this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -1204,6 +1218,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Anthem Sigma - Cryptanalysis Tool";
             this.Load += new System.EventHandler(this.ManualPage_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1298,5 +1313,6 @@
         private System.Windows.Forms.Button buttonPlainb;
         private System.Windows.Forms.Button buttonPlaina;
         private System.Windows.Forms.Button buttonPlainEmpty;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

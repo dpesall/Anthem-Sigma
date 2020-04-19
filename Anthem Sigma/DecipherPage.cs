@@ -501,15 +501,15 @@ namespace Anthem_Sigma
 
         private void ButtonUpload_Click(object sender, EventArgs e)
         {
-            #pragma warning disable IDE0017 // Simplify object initialization
+            #pragma warning disable IDE0017
             OpenFileDialog dialog = new OpenFileDialog();
-            #pragma warning restore IDE0017 // Simplify object initialization
-            dialog.Filter = "Text files | *.txt"; // file types, that will be allowed to upload
-            dialog.Multiselect = false; // allow/deny user to upload more than one file at a time
-            if (dialog.ShowDialog() == DialogResult.OK) // if user clicked OK
+            #pragma warning restore IDE0017
+            dialog.Filter = "Text files | *.txt";
+            dialog.Multiselect = false;
+            if (dialog.ShowDialog() == DialogResult.OK)
             {
-                String path = dialog.FileName; // get name of file
-                using (StreamReader reader = new StreamReader(new FileStream(path, FileMode.Open), new UTF8Encoding())) // do anything you want, e.g. read it
+                String path = dialog.FileName;
+                using (StreamReader reader = new StreamReader(new FileStream(path, FileMode.Open), new UTF8Encoding()))
                 {
                     inputText = reader.ReadToEnd();
                     textBoxInput.Text = inputText.ToUpper();

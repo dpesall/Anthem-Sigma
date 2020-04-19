@@ -52,8 +52,10 @@
             this.textMatrix3 = new System.Windows.Forms.TextBox();
             this.textMatrix4 = new System.Windows.Forms.TextBox();
             this.buttonEncipher = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericMultiplicative)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericAdditive)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonBack
@@ -374,12 +376,23 @@
             this.buttonEncipher.Visible = false;
             this.buttonEncipher.Click += new System.EventHandler(this.ButtonEncipher_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Anthem_Sigma.Properties.Resources.Logo_Full;
+            this.pictureBox1.Location = new System.Drawing.Point(531, 475);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(123, 123);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 144;
+            this.pictureBox1.TabStop = false;
+            // 
             // EncipherPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1184, 681);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.buttonEncipher);
             this.Controls.Add(this.textMatrix4);
             this.Controls.Add(this.textMatrix3);
@@ -412,6 +425,7 @@
             this.Load += new System.EventHandler(this.EncipherPage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericMultiplicative)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericAdditive)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -442,5 +456,6 @@
         private System.Windows.Forms.TextBox textMatrix3;
         private System.Windows.Forms.TextBox textMatrix4;
         private System.Windows.Forms.Button buttonEncipher;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

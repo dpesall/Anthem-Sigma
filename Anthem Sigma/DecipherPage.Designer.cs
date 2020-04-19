@@ -52,8 +52,10 @@
             this.textBoxInput = new System.Windows.Forms.RichTextBox();
             this.labelOutput = new System.Windows.Forms.Label();
             this.labelInput = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericAdditive)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericMultiplicative)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonBack
@@ -374,12 +376,23 @@
             this.labelInput.TabIndex = 46;
             this.labelInput.Text = "Input:";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Anthem_Sigma.Properties.Resources.Logo_Full;
+            this.pictureBox1.Location = new System.Drawing.Point(531, 475);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(123, 123);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 143;
+            this.pictureBox1.TabStop = false;
+            // 
             // DecipherPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1184, 681);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.labelOutput);
             this.Controls.Add(this.labelInput);
             this.Controls.Add(this.buttonDecipher);
@@ -412,6 +425,7 @@
             this.Load += new System.EventHandler(this.DecipherPage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericAdditive)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericMultiplicative)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -442,5 +456,6 @@
         private System.Windows.Forms.RichTextBox textBoxInput;
         private System.Windows.Forms.Label labelOutput;
         private System.Windows.Forms.Label labelInput;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
