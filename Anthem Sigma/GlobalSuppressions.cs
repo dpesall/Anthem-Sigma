@@ -17,3 +17,4 @@
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0054:Use compound assignment", Justification = "<Pending>", Scope = "member", Target = "~M:Anthem_Sigma.DecipherPage.modInverse(System.Int32,System.Int32)~System.Int32")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0059:Value assigned to symbol is never used", Justification = "<Pending>", Scope = "member", Target = "~M:Anthem_Sigma.ManualPage.ButtonUpload_Click(System.Object,System.EventArgs)")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0044:Add readonly modifier", Justification = "<Pending>", Scope = "member", Target = "~F:Anthem_Sigma.ManualPage.Alphabet")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0059:Value assigned to symbol is never used", Justification = "<Pending>", Scope = "member", Target = "~M:Anthem_Sigma.UtilitiesPage.updateNGramCount(System.Object,System.EventArgs)")]

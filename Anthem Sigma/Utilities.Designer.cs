@@ -39,6 +39,7 @@
             this.comboNGram = new System.Windows.Forms.ComboBox();
             this.textBoxLetterFrequency = new System.Windows.Forms.RichTextBox();
             this.labelLetterFrequency = new System.Windows.Forms.Label();
+            this.labelTest = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonBack
@@ -137,6 +138,7 @@
             this.comboNGram.Name = "comboNGram";
             this.comboNGram.Size = new System.Drawing.Size(178, 39);
             this.comboNGram.TabIndex = 38;
+            this.comboNGram.SelectedIndexChanged += new System.EventHandler(this.ComboNGram_SelectedIndexChanged);
             // 
             // textBoxLetterFrequency
             // 
@@ -159,12 +161,24 @@
             this.labelLetterFrequency.TabIndex = 40;
             this.labelLetterFrequency.Text = "Letter Frequency Chart";
             // 
+            // labelTest
+            // 
+            this.labelTest.AutoSize = true;
+            this.labelTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTest.ForeColor = System.Drawing.SystemColors.Control;
+            this.labelTest.Location = new System.Drawing.Point(677, 581);
+            this.labelTest.Name = "labelTest";
+            this.labelTest.Size = new System.Drawing.Size(79, 37);
+            this.labelTest.TabIndex = 41;
+            this.labelTest.Text = "Test";
+            // 
             // UtilitiesPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1184, 681);
+            this.Controls.Add(this.labelTest);
             this.Controls.Add(this.labelLetterFrequency);
             this.Controls.Add(this.textBoxLetterFrequency);
             this.Controls.Add(this.comboNGram);
@@ -199,5 +213,6 @@
         private System.Windows.Forms.ComboBox comboNGram;
         private System.Windows.Forms.RichTextBox textBoxLetterFrequency;
         private System.Windows.Forms.Label labelLetterFrequency;
+        private System.Windows.Forms.Label labelTest;
     }
 }

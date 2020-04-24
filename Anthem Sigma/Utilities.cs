@@ -27,7 +27,9 @@ namespace Anthem_Sigma
 
         private void UtilitiesPage_Load(object sender, EventArgs e)
         {
-
+            textBoxLetterFrequency.Font = new Font(FontFamily.GenericMonospace, textBoxLetterFrequency.Font.Size);
+            textBoxNGram.Font = new Font(FontFamily.GenericMonospace, textBoxNGram.Font.Size);
+            comboNGram.SelectedIndex = 0;
         }
 
         private void updateLetterFrequency(object sender, EventArgs e)
@@ -49,14 +51,71 @@ namespace Anthem_Sigma
                     Frequency[temp] += 1;
                 }
             }
+            var sortedDict = from entry in Frequency orderby entry.Value ascending select entry;
             for (int i = 0; i < Frequency.Count; i++)
             {
                 int freq = Frequency[(char)('A' + i)];
-                string temp = freq.ToString("####").PadLeft(5, ' ');
-                printout += ((char)('A' + i)).ToString() + " : " + temp + "\n";
-                
+                string temp = sortedDict.ElementAt(25 - i).ToString();
+                string[] arr = temp.Split(' ');
+                var charsToRemove = new string[] { "[", "]", ","};
+                foreach (var c in charsToRemove)
+                {
+                    arr[0] = arr[0].Replace(c, string.Empty);
+                    arr[1] = arr[1].Replace(c, string.Empty);
+                }
+
+                printout += arr[0] + " : " + arr[1] + "\n";
             }
+            
             textBoxLetterFrequency.Text = printout;
+        }
+
+        private void updateNGramCount (object sender, EventArgs e)
+        {
+            int gram = comboNGram.SelectedIndex + 2;
+            string text = textBoxCiphertext.Text;
+            string justLetters = "";
+            string printout = "";
+            for (int i = 0; i < text.Length; i++)
+            {
+                if (text[i] >= 'A' && text[i] <= 'Z') {
+                    justLetters += text[i];
+                }
+            }
+
+            Dictionary<string, int> Frequency = new Dictionary<string, int>();
+            for (int i = 0; i < justLetters.Length - gram + 1; i++)
+            {
+                string temp = "";
+                for (int k = 0; k < gram; k++)
+                {
+                    temp += justLetters[i + k];
+                }
+                try
+                {
+                    Frequency[temp] += 1;
+                } catch(Exception)
+                {
+                    Frequency[temp] = 1;
+                }
+            }
+            var sortedDict = from entry in Frequency orderby entry.Value ascending select entry;
+
+            for (int i = 0; i < sortedDict.Count(); i++)
+            {
+                string temp = sortedDict.ElementAt((sortedDict.Count() - 1) - i).ToString();
+                string[] arr = temp.Split(' ');
+                var charsToRemove = new string[] { "[", "]", "," };
+                foreach (var c in charsToRemove)
+                {
+                    arr[0] = arr[0].Replace(c, string.Empty);
+                    arr[1] = arr[1].Replace(c, string.Empty);
+                }
+
+                printout += arr[0] + " : " + arr[1] + "\n";
+            }
+
+            textBoxNGram.Text = printout;
         }
 
         private void ButtonUpload_Click(object sender, EventArgs e)
@@ -75,8 +134,14 @@ namespace Anthem_Sigma
                     string inputText = reader.ReadToEnd();
                     textBoxCiphertext.Text = inputText.ToUpper();
                     updateLetterFrequency(sender, e);
+                    updateNGramCount(sender, e);
                 }
             }
+        }
+
+        private void ComboNGram_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            updateNGramCount(sender, e);
         }
     }
 }
