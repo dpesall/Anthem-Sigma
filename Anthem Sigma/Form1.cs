@@ -58,7 +58,9 @@ namespace Anthem_Sigma
 
         private void ButtonCredits_Click(object sender, EventArgs e)
         {
-
+            CreditsPage credits = new CreditsPage();
+            credits.Show();
+            main.Hide();
         }
     }
 }
