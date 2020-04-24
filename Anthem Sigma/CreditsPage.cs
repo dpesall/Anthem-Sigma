@@ -31,7 +31,7 @@ namespace Anthem_Sigma
 
         private void ButtonGithub_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://github.com/dpesall?tab=repositories");
+            System.Diagnostics.Process.Start("https://github.com/dpesall");
         }
     }
 }
