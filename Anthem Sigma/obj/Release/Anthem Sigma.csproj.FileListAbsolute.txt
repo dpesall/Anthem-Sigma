@@ -1,0 +1,15 @@
+D:\VS Repos\Anthem Sigma\Anthem Sigma\Anthem Sigma\bin\Release\Anthem Sigma.exe.config
+D:\VS Repos\Anthem Sigma\Anthem Sigma\Anthem Sigma\bin\Release\Anthem Sigma.exe
+D:\VS Repos\Anthem Sigma\Anthem Sigma\Anthem Sigma\bin\Release\Anthem Sigma.pdb
+D:\VS Repos\Anthem Sigma\Anthem Sigma\Anthem Sigma\obj\Release\Anthem Sigma.csprojAssemblyReference.cache
+D:\VS Repos\Anthem Sigma\Anthem Sigma\Anthem Sigma\obj\Release\Anthem_Sigma.CreditsPage.resources
+D:\VS Repos\Anthem Sigma\Anthem Sigma\Anthem Sigma\obj\Release\Anthem_Sigma.DecipherPage.resources
+D:\VS Repos\Anthem Sigma\Anthem Sigma\Anthem Sigma\obj\Release\Anthem_Sigma.EncipherPage.resources
+D:\VS Repos\Anthem Sigma\Anthem Sigma\Anthem Sigma\obj\Release\Anthem_Sigma.MainPage.resources
+D:\VS Repos\Anthem Sigma\Anthem Sigma\Anthem Sigma\obj\Release\Anthem_Sigma.ManualPage.resources
+D:\VS Repos\Anthem Sigma\Anthem Sigma\Anthem Sigma\obj\Release\Anthem_Sigma.Properties.Resources.resources
+D:\VS Repos\Anthem Sigma\Anthem Sigma\Anthem Sigma\obj\Release\Anthem_Sigma.UtilitiesPage.resources
+D:\VS Repos\Anthem Sigma\Anthem Sigma\Anthem Sigma\obj\Release\Anthem Sigma.csproj.GenerateResource.cache
+D:\VS Repos\Anthem Sigma\Anthem Sigma\Anthem Sigma\obj\Release\Anthem Sigma.csproj.CoreCompileInputs.cache
+D:\VS Repos\Anthem Sigma\Anthem Sigma\Anthem Sigma\obj\Release\Anthem Sigma.exe
+D:\VS Repos\Anthem Sigma\Anthem Sigma\Anthem Sigma\obj\Release\Anthem Sigma.pdb
