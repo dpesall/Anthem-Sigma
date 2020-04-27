@@ -22,7 +22,7 @@ namespace Anthem_Sigma
 
         private void DecipherPage_Load(object sender, EventArgs e)
         {
-
+            comboOffset.SelectedIndex = 0;
         }
 
         private void ButtonBack_Click(object sender, EventArgs e)
@@ -41,6 +41,7 @@ namespace Anthem_Sigma
             numericMultiplicative.Visible = false; numericAdditive.Visible = false; labelKeyword.Visible = false;
             textKeyword.Visible = false; labelMatrix.Visible = false; textMatrix1.Visible = false;
             textMatrix2.Visible = false; textMatrix3.Visible = false; textMatrix4.Visible = false;
+            comboOffset.Visible = false; labelOffset.Visible = false;
 
             buttonDecipher.Visible = false;
             textBoxOutput.Text = "";
@@ -58,6 +59,8 @@ namespace Anthem_Sigma
                 case 1:
                     labelKeyword.Visible = true;
                     textKeyword.Visible = true;
+                    comboOffset.Visible = true;
+                    labelOffset.Visible = true;
 
                     if (textKeyword.Text.Equals(""))
                     {
@@ -196,7 +199,8 @@ namespace Anthem_Sigma
                     break;
                 case 1:
                     keyword = textKeyword.Text;
-                    text = decipherKeyword(text, keyword);
+                    int offset = comboOffset.SelectedIndex;
+                    text = decipherKeyword(text, keyword, offset);
                     textBoxOutput.Text = text;
 
                     break;
@@ -248,10 +252,19 @@ namespace Anthem_Sigma
             return text;
         }
 
-        private string decipherKeyword(string text, string keyword)
+        private string decipherKeyword(string text, string keyword, int offset)
         {
             string encoded = encoder(keyword.ToCharArray());
-            text = keywordDeciphering(text, encoded);
+
+            string encodedOffset = "";
+
+            for (int i = 0; i < 26; i++)
+            {
+                int temp = (i - offset + 26) % 26;
+                encodedOffset += encoded[temp];
+            }
+
+            text = keywordDeciphering(text, encodedOffset);
 
             return text;
         }

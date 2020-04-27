@@ -34,7 +34,7 @@ namespace Anthem_Sigma
 
         private void EncipherPage_Load(object sender, EventArgs e)
         {
-
+            comboOffset.SelectedIndex = 0;
         }
 
         private void ButtonUpload_Click(object sender, EventArgs e)
@@ -64,6 +64,7 @@ namespace Anthem_Sigma
             numericMultiplicative.Visible = false; numericAdditive.Visible = false; labelKeyword.Visible = false;
             textKeyword.Visible = false; labelMatrix.Visible = false; textMatrix1.Visible = false;
             textMatrix2.Visible = false; textMatrix3.Visible = false; textMatrix4.Visible = false;
+            comboOffset.Visible = false; labelOffset.Visible = false;
 
             buttonEncipher.Visible = false;
             textBoxOutput.Text = "";
@@ -81,6 +82,8 @@ namespace Anthem_Sigma
                 case 1:
                     labelKeyword.Visible = true;
                     textKeyword.Visible = true;
+                    comboOffset.Visible = true;
+                    labelOffset.Visible = true;
 
                     if (textKeyword.Text.Equals(""))
                     {
@@ -138,7 +141,8 @@ namespace Anthem_Sigma
                     break;
                 case 1:
                     keyword = textKeyword.Text.ToLower();
-                    text = encipherKeyword(text, keyword);
+                    int offset = comboOffset.SelectedIndex;
+                    text = encipherKeyword(text, keyword, offset);
                     break;
                 case 2:
                     int mult = (int) numericMultiplicative.Value;
@@ -199,11 +203,20 @@ namespace Anthem_Sigma
             return segment;
         }
 
-        private string encipherKeyword(string text, string keyword)
+        private string encipherKeyword(string text, string keyword, int offset)
         {
 
             string encoded = encoder(keyword.ToCharArray());
-            text = keywordEnciphering(text, encoded);
+
+            string encodedOffset = "";
+
+            for (int i = 0; i < 26; i++)
+            {
+                int temp = (i - offset + 26) % 26;
+                encodedOffset += encoded[temp];
+            }
+
+            text = keywordEnciphering(text, encodedOffset);
 
             return text;
         }

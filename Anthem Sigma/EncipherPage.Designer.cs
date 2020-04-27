@@ -53,6 +53,8 @@
             this.textMatrix4 = new System.Windows.Forms.TextBox();
             this.buttonEncipher = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.labelOffset = new System.Windows.Forms.Label();
+            this.comboOffset = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericMultiplicative)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericAdditive)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -386,12 +388,65 @@
             this.pictureBox1.TabIndex = 144;
             this.pictureBox1.TabStop = false;
             // 
+            // labelOffset
+            // 
+            this.labelOffset.AutoSize = true;
+            this.labelOffset.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelOffset.ForeColor = System.Drawing.SystemColors.Control;
+            this.labelOffset.Location = new System.Drawing.Point(44, 196);
+            this.labelOffset.Name = "labelOffset";
+            this.labelOffset.Size = new System.Drawing.Size(96, 31);
+            this.labelOffset.TabIndex = 147;
+            this.labelOffset.Text = "Offset:";
+            this.labelOffset.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.labelOffset.Visible = false;
+            // 
+            // comboOffset
+            // 
+            this.comboOffset.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboOffset.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboOffset.FormattingEnabled = true;
+            this.comboOffset.Items.AddRange(new object[] {
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25"});
+            this.comboOffset.Location = new System.Drawing.Point(146, 199);
+            this.comboOffset.Name = "comboOffset";
+            this.comboOffset.Size = new System.Drawing.Size(50, 28);
+            this.comboOffset.TabIndex = 146;
+            this.comboOffset.Visible = false;
+            // 
             // EncipherPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1184, 681);
+            this.Controls.Add(this.labelOffset);
+            this.Controls.Add(this.comboOffset);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.buttonEncipher);
             this.Controls.Add(this.textMatrix4);
@@ -457,5 +512,7 @@
         private System.Windows.Forms.TextBox textMatrix4;
         private System.Windows.Forms.Button buttonEncipher;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label labelOffset;
+        private System.Windows.Forms.ComboBox comboOffset;
     }
 }
