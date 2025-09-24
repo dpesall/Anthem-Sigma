@@ -61,14 +61,6 @@ Anthem Sigma is designed for:
 - **Puzzle Enthusiasts** - Solving cryptographic challenges
 - **Security Awareness** - Learning historical encryption methods
 
-## 🤝 Contributing
-
-This project is open source and welcomes contributions. Areas for improvement include:
-- Additional cipher implementations
-- Enhanced cryptanalysis features
-- UI/UX improvements
-- Cross-platform compatibility
-
 ## 📄 License
 
 Licensed under the MIT License. See [LICENSE](LICENSE) for details.
