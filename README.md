@@ -31,7 +31,7 @@ A comprehensive cryptography education tool that implements classical cipher alg
 
 ## 📥 Download
 
-**[LINK]** *(Coming Soon)*
+**[Download Anthem Sigma v1.0.0](https://github.com/dpesall/Anthem-Sigma/releases/download/v1.0.0/Anthem.Sigma.exe)**
 
 ## 🚀 Getting Started
 
